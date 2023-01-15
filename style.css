@@ -1,43 +1,34 @@
+/* Add some styling to the calculator */
 #calculator {
-  width: 300px;
+  width: 400px;
   margin: 0 auto;
+  text-align: center;
 }
 
 #display {
   width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  box-sizing: border-box;
-  border: 2px solid #ccc;
-  border-radius: 4px;
+  font-size: 2em;
+  padding: 10px;
+  background-color: #f4f4f4;
+  border: none;
+  text-align: right;
 }
 
-#buttons {
-  width: 100%;
-}
-
-.number, .operator {
+button {
   width: 25%;
-  height: 50px;
-  padding: 12px;
-  margin: 8px 0;
-  box-sizing: border-box;
-  border: 2px solid #ccc;
-  border-radius: 4px;
+  padding: 20px;
+  font-size: 1.5em;
+  margin: 5px;
   background-color: #fff;
-  font-size: 20px;
-  text-align: center;
-  float: left;
+  border: 1px solid #ccc;
+  cursor: pointer;
 }
 
-.clear, .eval {
-  width: 50%;
-  height: 50px;
-  padding: 12px;
-  margin: 8px 0;
-  box-sizing: border-box;
-  border: 2px solid #ccc;
-  border-radius: 4px;
-  background-color: #fff;
-  font-size: 20px
+button:active {
+  background-color: #ddd;
+}
+
+button.operator {
+  background-color: #f9c153;
+  color: #fff;
 }
