@@ -1,0 +1,43 @@
+#calculator {
+  width: 300px;
+  margin: 0 auto;
+}
+
+#display {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+}
+
+#buttons {
+  width: 100%;
+}
+
+.number, .operator {
+  width: 25%;
+  height: 50px;
+  padding: 12px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  font-size: 20px;
+  text-align: center;
+  float: left;
+}
+
+.clear, .eval {
+  width: 50%;
+  height: 50px;
+  padding: 12px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  font-size: 20px
+}

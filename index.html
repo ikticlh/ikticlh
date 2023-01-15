@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ko">
+ <head>
+  <meta charset = utf-8">
+  <title>calculator</title>
+  <link rel="stylesheet" href="style.css">
+ </head>
+ <body>
+     <div id="calculator">
+  <input type="text" id="display">
+  <div id="buttons">
+    <button class="number" onclick="addValue(1)">1</button>
+    <button class="number" onclick="addValue(2)">2</button>
+    <button class="number" onclick="addValue(3)">3</button>
+    <button class="operator" onclick="addValue('+')">+</button>
+    <button class="number" onclick="addValue(4)">4</button>
+    <button class="number" onclick="addValue(5)">5</button>
+    <button class="number" onclick="addValue(6)">6</button>
+    <button class="operator" onclick="addValue('-')">-</button>
+    <button class="number" onclick="addValue(7)">7</button>
+    <button class="number" onclick="addValue(8)">8</button>
+    <button class="number" onclick="addValue(9)">9</button>
+    <button class="operator" onclick="addValue('*')">*</button>
+    <button class="clear" onclick="clearDisplay()">C</button>
+    <button class="number" onclick="addValue(0)">0</button>
+    <button class="eval" onclick="calculate()">=</button>
+    <button class="operator" onclick="addValue('/')">/</button>
+  </div>
+</div>
+<script src="index.js"></script>
+
+ </body>
+</html>
