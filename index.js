@@ -1,23 +1,22 @@
-window.onload = function() {
-
 var display = document.getElementById("display");
-var lastButton = "";
+var firstOperand = "";
+var operator = "";
+var secondOperand = "";
+var result;
 
 function addValue(val) {
-  if (lastButton === "operator") {
-    display.value = display.value.slice(0, -1);
+  if (operator === "") {
+    firstOperand += val;
+    display.value = firstOperand;
+  } else {
+    secondOperand += val;
+    display.value = secondOperand;
   }
-  display.value += val;
-  lastButton = typeof val;
 }
 
-function clearDisplay() {
-  display.value = "";
-  lastButton = "";
-}
-
-function calculate() {
-  display.value = eval(display.value);
-  lastButton = "";
-}
+function addOperator(op) {
+  if (firstOperand !== "") {
+    operator = op;
+    display.value = operator;
+  }
 }
