@@ -1,52 +1,24 @@
-var display = document.getElementById("display");
-var firstOperand = "";
-var operator = "";
-var secondOperand = "";
-var result;
-
-function addValue(val) {
-  if (operator === "") {
-    firstOperand += val;
-    display.value = firstOperand;
-  } else {
-    secondOperand += val;
-    display.value = secondOperand;
-  }
+function addOutput(num) {
+  var display = document.getElementById("display");
+  display.value = display.value + num;
 }
-
-function addOperator(op) {
-  if (firstOperand !== "") {
-    operator = op;
-    display.value = operator;
-  }
-}
-
+ 
 function calculate() {
-        if (firstOperand !== "" && operator !== "" && secondOperand !== "") {
-          switch (operator) {
-            case "+":
-              result = parseFloat(firstOperand) + parseFloat(secondOperand);
-              break;
-            case "-":
-              result = parseFloat(firstOperand) - parseFloat(secondOperand);
-              break;
-            case "*":
-              result = parseFloat(firstOperand) * parseFloat(secondOperand);
-              break;
-            case "/":
-              result = parseFloat(firstOperand) / parseFloat(secondOperand);
-              break;
-          }
-          display.value = result;
-        }
-      }
-
-
-function clearDisplay() {
-        firstOperand = "";
-        operator = "";
-        secondOperand = "";
-        display.value = "";
-      }
-
-
+  var display = document.getElementById("display");
+  var result = eval(display.value);
+  var displayResult = document.getElementById("result");
+  displayResult.value = result;
+}
+ 
+function reset() {
+  var display = document.getElementById("display");
+  display.value = "";
+  var displayResult = document.getElementById("result");
+  displayResult.value = "";
+}
+ 
+function del() {
+  var display = documnet.getElementById("display");
+  display.value = display.value.substring(0, display.value.length - 1);
+}
+ 
