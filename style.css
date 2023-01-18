@@ -1,9 +1,14 @@
 /* Add some styling to the calculator */
 #calculator {
-  height:90%;
-  width: 60%;
-  margin: 0 auto;
-  text-align: center;
+  width: 80%;
+  height: 80%;
+}
+
+@media only screen and (min-width: 768px) {
+  #calculator {
+    width: 30%;
+    height: 70%;
+  }
 }
 
 #display {
