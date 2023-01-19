@@ -1,24 +1,75 @@
-function addOutput(num) {
-  var display = document.getElementById("display");
-  display.value = display.value + num;
+class Calculator {
+    constructor(displayElement) { 
+        this.displayElement = displayElement
+        this.operatorCheck = true
+        this.equalsCheck = false
+        this.clear()
+    }    
+
+    appendNumber(number) {
+        if (this.equalsCheck) {
+            this.displayContent = number
+            this.equalsCheck = false
+        } else {
+            this.displayContent += number
+        }
+        this.operatorCheck = false
+    }
+
+    appendOperator(operator) {    
+        if (this.operatorCheck) return false
+        if (this.equalsCheck) this.equalsCheck = false
+        this.displayContent += operator
+        return this.operatorCheck = true         
+    }
+
+    updateDisplay() {
+        this.displayElement.value = this.displayContent
+    }
+
+    clear() {
+        this.displayContent = ''
+        this.displayElement.value = 0
+        this.operatorCheck = true
+    }
+
+    compute() {
+        if (this.operatorCheck) return
+        this.displayContent = eval(this.displayContent
+            .replace('\u00D7', '*')
+            .replace('\u00F7', '/')
+        )
+        this.equalsCheck = true
+    }
 }
- 
-function calculate() {
-  var display = document.getElementById("display");
-  var result = eval(display.value);
-  var displayResult = document.getElementById("result");
-  displayResult.value = result;
+
+String.prototype.replaceAll = function (searchStr, replaceStr) {
+return this.split(searchStr).join(replaceStr);
 }
- 
-function reset() {
-  var display = document.getElementById("display");
-  display.value = "";
-  var displayResult = document.getElementById("result");
-  displayResult.value = "";
-}
- 
-function del() {
-  var display = documnet.getElementById("display");
-  display.value = display.value.substring(0, display.value.length - 1);
-}
- 
+const buttons = document.querySelectorAll('button')
+const displayElement = document.querySelector('input')
+
+const calculator = new Calculator(displayElement)
+
+buttons.forEach(button => {
+    button.addEventListener('click', () => {
+        switch (button.dataset.type) {
+            case 'operator':
+                if (calculator.appendOperator(button.innerText)) {
+                    calculator.updateDisplay()
+                }                                            
+                break
+            case 'ac':
+                calculator.clear()
+                break
+            case 'equals':
+                calculator.compute()
+                calculator.updateDisplay()
+                break
+            default:
+                calculator.appendNumber(button.innerText)
+                calculator.updateDisplay()
+                break
+        }
+    })      
+})
