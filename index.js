@@ -36,7 +36,7 @@ class Calculator {
     compute() {
         if (this.operatorCheck) return
         try {
-            this.displayContent = new Function(`return ${this.displayContent}`)(); 
+            this.displayContent = eval(this.displayContent);
             this.equalsCheck = true;
         } catch (e) {
             this.displayContent = "error";
