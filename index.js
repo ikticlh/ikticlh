@@ -43,9 +43,7 @@ class Calculator {
     }
 }
 
-String.prototype.replaceAll = function (searchStr, replaceStr) {
-return this.split(searchStr).join(replaceStr);
-}
+
 const buttons = document.querySelectorAll('button')
 const displayElement = document.querySelector('input')
 
