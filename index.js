@@ -35,39 +35,12 @@ class Calculator {
 
     compute() {
         if (this.operatorCheck) return
-        this.displayContent = eval(this.displayContent
-            .replace('\u00D7', '*')
-            .replace('\u00F7', '/')
-        )
-        this.equalsCheck = true
+        try {
+            this.displayContent = new Function(`return ${this.displayContent}`)(); 
+            this.equalsCheck = true;
+        } catch (e) {
+            this.displayContent = "error";
+            this.equalsCheck = true;
+        }
     }
 }
-
-
-const buttons = document.querySelectorAll('button')
-const displayElement = document.querySelector('input')
-
-const calculator = new Calculator(displayElement)
-
-buttons.forEach(button => {
-    button.addEventListener('click', () => {
-        switch (button.dataset.type) {
-            case 'operator':
-                if (calculator.appendOperator(button.innerText)) {
-                    calculator.updateDisplay()
-                }                                            
-                break
-            case 'ac':
-                calculator.clear()
-                break
-            case 'equals':
-                calculator.compute()
-                calculator.updateDisplay()
-                break
-            default:
-                calculator.appendNumber(button.innerText)
-                calculator.updateDisplay()
-                break
-        }
-    })      
-})
